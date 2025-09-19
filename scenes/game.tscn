@@ -48,3 +48,5 @@ shape = SubResource("RectangleShape2D_lbhrr")
 wait_time = 3.0
 
 [node name="DifficultyTimer" type="Timer" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="."]

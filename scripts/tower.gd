@@ -1,4 +1,4 @@
-# tower.gd
+# tower.gd - FIXED VERSION
 extends StaticBody2D
 
 @export var tower_side: String = "left"  # Set this in inspector
@@ -9,14 +9,14 @@ signal tower_destroyed(side: String)
 @onready var sprite = $Sprite2D
 
 func _ready():
-	print("Tower ", tower_side, " ready")
+	print("🏗️ Tower ", tower_side, " ready")
 
 func destroy_tower():
 	if is_destroyed:
 		return
 		
 	is_destroyed = true
-	print("TOWER ", tower_side.to_upper(), " DESTROYED!")
+	print("💥 TOWER ", tower_side.to_upper(), " DESTROYED!")
 	
 	# Visual effect
 	if sprite:
@@ -29,6 +29,8 @@ func destroy_tower():
 		tween.tween_property(sprite, "position", Vector2(5, 0), 0.05)
 		tween.tween_property(sprite, "position", Vector2(-5, 0), 0.05)
 		tween.tween_property(sprite, "position", Vector2(0, 0), 0.05)
+	else:
+		print("⚠️ Warning: No sprite found for visual effect")
 	
 	# Emit signal
 	tower_destroyed.emit(tower_side)
@@ -41,4 +43,7 @@ func reset():
 		sprite.scale = Vector2(1.0, 1.0)
 		sprite.position = Vector2(0, 0)
 	
-	print("Tower ", tower_side, " reset")
+	print("🔄 Tower ", tower_side, " reset")
+
+func get_destroyed() -> bool:
+	return is_destroyed

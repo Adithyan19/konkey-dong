@@ -1,4 +1,4 @@
-# game.gd
+# game.gd - FIXED VERSION  
 extends Node2D
 
 # Game settings
@@ -10,8 +10,8 @@ enum GameState { BOTH_TOWERS, LEFT_ONLY, RIGHT_ONLY, GAME_OVER }
 var current_game_state: GameState = GameState.BOTH_TOWERS
 
 # Node references
-@onready var left_tower = $LeftTower
-@onready var right_tower = $RightTower  
+@onready var left_tower = $tower1
+@onready var right_tower = $tower2
 @onready var player = $Player
 @onready var spawn_timer = $SpawnTimer
 
@@ -32,7 +32,7 @@ func _ready():
 	# Setup UI
 	create_ui()
 	
-	print("Game started!")
+	print("✅ Game started!")
 
 func create_ui():
 	# Game Over label
@@ -40,7 +40,7 @@ func create_ui():
 	game_over_label.text = "GAME OVER"
 	game_over_label.add_theme_font_size_override("font_size", 48)
 	game_over_label.modulate = Color.RED
-	game_over_label.anchors_preset = Control.PRESET_CENTER
+	game_over_label.position = Vector2(-100, -50)
 	game_over_label.visible = false
 	add_child(game_over_label)
 	
@@ -48,8 +48,7 @@ func create_ui():
 	replay_button = Button.new()
 	replay_button.text = "RESTART"
 	replay_button.size = Vector2(100, 40)
-	replay_button.anchors_preset = Control.PRESET_CENTER
-	replay_button.position.y += 50
+	replay_button.position = Vector2(-50, 20)
 	replay_button.visible = false
 	replay_button.pressed.connect(restart_game)
 	add_child(replay_button)
@@ -58,6 +57,8 @@ func spawn_plane():
 	if current_game_state == GameState.GAME_OVER:
 		return
 		
+	print("Spawning plane...")
+	
 	# Create plane
 	var plane = RigidBody2D.new()
 	plane.gravity_scale = 0
@@ -86,9 +87,9 @@ func spawn_plane():
 	# Adjust based on game state
 	match current_game_state:
 		GameState.LEFT_ONLY:
-			spawn_left = false  # Attack remaining right tower
+			spawn_left = false  # Attack remaining left tower from right
 		GameState.RIGHT_ONLY:
-			spawn_left = true   # Attack remaining left tower
+			spawn_left = true   # Attack remaining right tower from left
 	
 	if spawn_left:
 		plane.position = Vector2(-300, randf_range(-50, 50))
@@ -102,19 +103,28 @@ func spawn_plane():
 	
 	# Connect collision
 	plane.body_entered.connect(_on_plane_hit_something.bind(plane))
+	
+	# Auto-remove after 10 seconds if still exists
+	get_tree().create_timer(10.0).timeout.connect(plane.queue_free)
 
 func _on_plane_hit_something(plane: RigidBody2D, body):
-	var target = plane.get_meta("target")
+	if not is_instance_valid(plane):
+		return
+		
+	var target = plane.get_meta("target", "")
 	
 	# Check if hit correct tower
-	if (body == left_tower and target == "left") or (body == right_tower and target == "right"):
-		print("Plane hit tower: ", target)
-		if body.has_method("get_destroyed"):
-			body.destroy_tower()
+	if body == left_tower and target == "left":
+		print("💥 Plane hit LEFT tower!")
+		left_tower.destroy_tower()
+		plane.queue_free()
+	elif body == right_tower and target == "right":
+		print("💥 Plane hit RIGHT tower!")  
+		right_tower.destroy_tower()
 		plane.queue_free()
 
 func _on_tower_destroyed(side: String):
-	print("Tower destroyed: ", side)
+	print("🚨 Tower destroyed: ", side)
 	
 	if side == "left":
 		if right_tower.is_destroyed:
@@ -134,7 +144,7 @@ func game_over():
 	spawn_timer.stop()
 	game_over_label.visible = true
 	replay_button.visible = true
-	print("GAME OVER!")
+	print("💀 GAME OVER!")
 
 func restart_game():
 	current_game_state = GameState.BOTH_TOWERS
@@ -155,4 +165,4 @@ func restart_game():
 	
 	# Restart spawning
 	spawn_timer.start()
-	print("Game restarted!")
+	print("🔄 Game restarted!")
