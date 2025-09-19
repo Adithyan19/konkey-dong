@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds0ne6hkvyqpf"]
+
+[ext_resource type="Texture2D" uid="uid://cbgrhyabcvmur" path="res://assets/vecteezy_isolated-city-building-vector-design_2956073[1].png" id="1_wibx0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4s503"]
+size = Vector2(128, 500)
+
+[node name="tower1" type="StaticBody2D"]
+position = Vector2(620, -227)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("1_wibx0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_4s503")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr46lmnydle4q"
-path="res://.godot/imported/Arcade - Donkey Kong - Miscellaneous - Characters and Objects.png-5c6a98b401c49803d811b1781cac6a8f.ctex"
+uid="uid://of2iegy6cwgj"
+path="res://.godot/imported/Cloud-21.png-9e9f97f4171065b47847ee75d9164017.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Arcade - Donkey Kong - Miscellaneous - Characters and Objects.png"
-dest_files=["res://.godot/imported/Arcade - Donkey Kong - Miscellaneous - Characters and Objects.png-5c6a98b401c49803d811b1781cac6a8f.ctex"]
+source_file="res://assets/Dithered/Cloud-21.png"
+dest_files=["res://.godot/imported/Cloud-21.png-9e9f97f4171065b47847ee75d9164017.ctex"]
 
 [params]
 

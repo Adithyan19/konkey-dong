@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw2xino023xvp"]
+
+[ext_resource type="Texture2D" uid="uid://djuo057xkxw3o" path="res://assets/pixellab-full-length-plane-from-the-sid-1758294646761.png" id="1_dt3pm"]
+[ext_resource type="Script" uid="uid://5ailqlasgfgl" path="res://scripts/plane.gd" id="2_206p1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_206p1"]
+atlas = ExtResource("1_dt3pm")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_md2q8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_206p1")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0b6s"]
+size = Vector2(20, 3)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("2_206p1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.195, 0.195)
+sprite_frames = SubResource("SpriteFrames_md2q8")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_n0b6s")
