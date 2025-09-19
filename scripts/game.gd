@@ -1,9 +1,10 @@
-# game.gd - FIXED VERSION  
+# game.gd - USING YOUR PLANE ASSET
 extends Node2D
 
 # Game settings
+@export var plane_scene: PackedScene  # DRAG YOUR PLANE.TSCN HERE
 @export var spawn_interval: float = 3.0
-@export var plane_speed: float = 100.0
+@export var plane_speed: float = 120.0
 
 # Game state
 enum GameState { BOTH_TOWERS, LEFT_ONLY, RIGHT_ONLY, GAME_OVER }
@@ -11,7 +12,7 @@ var current_game_state: GameState = GameState.BOTH_TOWERS
 
 # Node references
 @onready var left_tower = $tower1
-@onready var right_tower = $tower2
+@onready var right_tower = $tower2  
 @onready var player = $Player
 @onready var spawn_timer = $SpawnTimer
 
@@ -32,7 +33,7 @@ func _ready():
 	# Setup UI
 	create_ui()
 	
-	print("✅ Game started!")
+	print("✅ Game started using YOUR plane asset!")
 
 func create_ui():
 	# Game Over label
@@ -56,30 +57,16 @@ func create_ui():
 func spawn_plane():
 	if current_game_state == GameState.GAME_OVER:
 		return
+	
+	if plane_scene == null:
+		print("ERROR: Please drag your plane.tscn into the Plane Scene field in the inspector!")
+		return
 		
-	print("Spawning plane...")
+	print("Spawning YOUR plane...")
 	
-	# Create plane
-	var plane = RigidBody2D.new()
-	plane.gravity_scale = 0
-	
-	# Add collision
-	var collision = CollisionShape2D.new()
-	var shape = RectangleShape2D.new()
-	shape.size = Vector2(30, 15)
-	collision.shape = shape
-	plane.add_child(collision)
-	
-	# Add visual
-	var visual = ColorRect.new()
-	visual.size = Vector2(30, 15)
-	visual.color = Color.YELLOW
-	visual.position = Vector2(-15, -7.5)
-	plane.add_child(visual)
-	
-	# Add to group
-	plane.add_to_group("planes")
-	add_child(plane)
+	# Create YOUR plane instance
+	var plane_instance = plane_scene.instantiate()
+	add_child(plane_instance)
 	
 	# Setup plane properties
 	var spawn_left = randf() > 0.5
@@ -91,37 +78,28 @@ func spawn_plane():
 		GameState.RIGHT_ONLY:
 			spawn_left = true   # Attack remaining right tower from left
 	
+	# Set position and velocity
 	if spawn_left:
-		plane.position = Vector2(-300, randf_range(-50, 50))
-		plane.linear_velocity = Vector2(plane_speed, 0)
-		plane.set_meta("target", "right")
+		plane_instance.position = Vector2(-250, randf_range(-50, 50))
+		plane_instance.velocity = Vector2(plane_speed, 0)
+		plane_instance.scale.x = 1
+		plane_instance.target_tower = "right"
 	else:
-		plane.position = Vector2(300, randf_range(-50, 50))
-		plane.linear_velocity = Vector2(-plane_speed, 0)
-		plane.set_meta("target", "left")
-		visual.rotation = PI  # Flip plane
+		plane_instance.position = Vector2(250, randf_range(-50, 50))
+		plane_instance.velocity = Vector2(-plane_speed, 0)
+		plane_instance.scale.x = -1  # Flip plane to face left
+		plane_instance.target_tower = "left"
 	
-	# Connect collision
-	plane.body_entered.connect(_on_plane_hit_something.bind(plane))
-	
-	# Auto-remove after 10 seconds if still exists
-	get_tree().create_timer(10.0).timeout.connect(plane.queue_free)
+	# Connect YOUR plane's signals
+	if plane_instance.has_signal("plane_reached_tower"):
+		plane_instance.plane_reached_tower.connect(_on_plane_reached_tower)
 
-func _on_plane_hit_something(plane: RigidBody2D, body):
-	if not is_instance_valid(plane):
-		return
-		
-	var target = plane.get_meta("target", "")
-	
-	# Check if hit correct tower
-	if body == left_tower and target == "left":
-		print("💥 Plane hit LEFT tower!")
+func _on_plane_reached_tower(tower_side: String):
+	print("💥 Plane reached ", tower_side, " tower!")
+	if tower_side == "left" and left_tower and not left_tower.is_destroyed:
 		left_tower.destroy_tower()
-		plane.queue_free()
-	elif body == right_tower and target == "right":
-		print("💥 Plane hit RIGHT tower!")  
+	elif tower_side == "right" and right_tower and not right_tower.is_destroyed:
 		right_tower.destroy_tower()
-		plane.queue_free()
 
 func _on_tower_destroyed(side: String):
 	print("🚨 Tower destroyed: ", side)

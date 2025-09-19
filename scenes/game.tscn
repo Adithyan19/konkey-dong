@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://be8coax7ux2ix"]
+[gd_scene load_steps=9 format=3 uid="uid://be8coax7ux2ix"]
 
 [ext_resource type="Script" uid="uid://du0w5pqbtxvdk" path="res://scripts/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://dueksahgpke7a" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ds0ne6hkvyqpf" path="res://scenes/tower_1.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://djn3u6x41prfe" path="res://scenes/tower_2.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cw2xino023xvp" path="res://scenes/plane.tscn" id="5_p57ef"]
 [ext_resource type="Script" uid="uid://by4qw71rrcpbp" path="res://scripts/tower.gd" id="5_u5sy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
@@ -14,6 +15,7 @@ size = Vector2(182, 20)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_iywne")
+plane_scene = ExtResource("5_p57ef")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 5
