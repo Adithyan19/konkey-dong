@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 # Movement - ORIGINAL POSITIONS RESTORED
-const SPEED = 150.0
+const SPEED = 100.0
 const LEFT_X = -58.0    # Original Kong position
 const RIGHT_X = 58.0    # Original Kong position
 const TOP_Y = -57.0     # Original limits
@@ -63,9 +63,9 @@ func _physics_process(_delta):
 	# Movement with ORIGINAL limits
 	var input_dir = Vector2()
 	
-	if Input.is_action_pressed("ui_up") and position.y > TOP_Y:
+	if (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_w")) and position.y > TOP_Y:
 		input_dir.y = -1
-	if Input.is_action_pressed("ui_down") and position.y < BOTTOM_Y:
+	if (Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_s")) and position.y < BOTTOM_Y:
 		input_dir.y = 1
 	
 	velocity = input_dir * SPEED

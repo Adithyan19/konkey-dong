@@ -81,12 +81,12 @@ func spawn_plane():
 	# Set position and velocity
 	if spawn_left:
 		plane_instance.position = Vector2(-250, randf_range(-50, 50))
-		plane_instance.velocity = Vector2(plane_speed, 0)
+		plane_instance.velocity = Vector2(plane_speed*1.3, 0)
 		plane_instance.scale.x = 1
 		plane_instance.target_tower = "right"
 	else:
 		plane_instance.position = Vector2(250, randf_range(-50, 50))
-		plane_instance.velocity = Vector2(-plane_speed, 0)
+		plane_instance.velocity = Vector2(-plane_speed*1.3, 0)
 		plane_instance.scale.x = -1  # Flip plane to face left
 		plane_instance.target_tower = "left"
 	
