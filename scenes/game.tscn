@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://be8coax7ux2ix"]
+
+[ext_resource type="Script" uid="uid://du0w5pqbtxvdk" path="res://scripts/game.gd" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://dueksahgpke7a" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://ds0ne6hkvyqpf" path="res://scenes/tower_1.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://djn3u6x41prfe" path="res://scenes/tower_2.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cw2xino023xvp" path="res://scenes/plane.tscn" id="5_p57ef"]
+[ext_resource type="Script" uid="uid://by4qw71rrcpbp" path="res://scripts/tower.gd" id="5_u5sy4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(220, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(182, 20)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_iywne")
+plane_scene = ExtResource("5_p57ef")
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+z_index = 5
+position = Vector2(-68, -48)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6.275, 6.275)
+
+[node name="tower1" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(-40, 20)
+scale = Vector2(0.32, 0.32)
+script = ExtResource("5_u5sy4")
+
+[node name="tower2" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(40, 20)
+scale = Vector2(0.32, 0.32)
+script = ExtResource("5_u5sy4")
+
+[node name="upper_bound" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upper_bound"]
+position = Vector2(16, -70)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="lower_bound" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lower_bound"]
+position = Vector2(-11, 96)
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="."]

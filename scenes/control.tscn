@@ -1,0 +1,213 @@
+[gd_scene load_steps=18 format=3 uid="uid://cmpnbjrnwggou"]
+
+[ext_resource type="Texture2D" uid="uid://cgddhsj56exdr" path="res://assets/Dithered/Cloud-7.png" id="1_ee4bf"]
+[ext_resource type="Script" path="res://scripts/control.gd" id="1_sky72"]
+[ext_resource type="Texture2D" uid="uid://d2e1usiikcywy" path="res://assets/Dithered/Cloud-2.png" id="2_kbped"]
+[ext_resource type="Texture2D" uid="uid://ctwdhttgf3xo5" path="res://assets/Dithered/Cloud-5.png" id="3_fj5cn"]
+[ext_resource type="Texture2D" uid="uid://cth0100sc6mlp" path="res://assets/Dithered/Cloud-31.png" id="4_iy58a"]
+[ext_resource type="Texture2D" uid="uid://b5ye3td7co5ur" path="res://assets/Dithered/Cloud-10.png" id="5_fj5cn"]
+[ext_resource type="Texture2D" uid="uid://b1h0o767is66e" path="res://assets/Dithered/Cloud-23.png" id="6_iy58a"]
+[ext_resource type="Texture2D" uid="uid://cbgrhyabcvmur" path="res://assets/vecteezy_isolated-city-building-vector-design_2956073[1].png" id="7_iy58a"]
+[ext_resource type="FontFile" uid="uid://ctt0n43aafyix" path="res://assets/Mario-Kart-DS.ttf" id="8_6a6wx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy58a"]
+bg_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a6wx"]
+bg_color = Color(0.73300546, 0.7330054, 0.7330054, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iy58a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxugv"]
+bg_color = Color(0.49019608, 0.49019608, 0.49019608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eh0v1"]
+bg_color = Color(0.73333335, 0.73333335, 0.73333335, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sky72"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sky72")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cloud7" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(776.75, -166.50005)
+scale = Vector2(1.5493274, 1.7166667)
+texture = ExtResource("1_ee4bf")
+
+[node name="Cloud2" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(947.75, -216.5)
+scale = Vector2(2.9491525, 3.2931035)
+texture = ExtResource("2_kbped")
+
+[node name="Cloud5" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(830.25, -196.50003)
+scale = Vector2(1.281915, 1.4897959)
+texture = ExtResource("3_fj5cn")
+
+[node name="Cloud31" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(-865, -175.25)
+scale = Vector2(1.9007933, 2.2166667)
+texture = ExtResource("4_iy58a")
+
+[node name="Cloud6" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(-927, -150.25002)
+scale = Vector2(1.5851064, 1.1632653)
+texture = ExtResource("3_fj5cn")
+
+[node name="Cloud8" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(-894, -130.25)
+scale = Vector2(1.4865471, 1.5)
+texture = ExtResource("1_ee4bf")
+
+[node name="Cloud10" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(439, -300)
+scale = Vector2(2.4074075, 2.2704918)
+texture = ExtResource("5_fj5cn")
+
+[node name="Cloud23" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(339, -276)
+scale = Vector2(2.2473683, 1.9363636)
+texture = ExtResource("6_iy58a")
+
+[node name="Cloud9" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(432, -264)
+scale = Vector2(1.9787234, 1.1938776)
+texture = ExtResource("3_fj5cn")
+
+[node name="Cloud32" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(-485.25, -290.5)
+scale = Vector2(1.2037038, 1.3)
+texture = ExtResource("4_iy58a")
+
+[node name="Cloud3" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(-334.5, -291)
+scale = Vector2(2.1271186, 2.3448277)
+texture = ExtResource("2_kbped")
+
+[node name="Cloud11" type="Sprite2D" parent="ReferenceRect"]
+position = Vector2(-413, -275)
+scale = Vector2(1.5555556, 1.6475409)
+texture = ExtResource("5_fj5cn")
+
+[node name="VecteezyIsolatedCityBuildingVectorDesign2956073" type="Sprite2D" parent="."]
+position = Vector2(-190, 226)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_iy58a")
+
+[node name="VecteezyIsolatedCityBuildingVectorDesign2956074" type="Sprite2D" parent="."]
+position = Vector2(212, 226)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_iy58a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.75
+offset_top = -18.75
+offset_right = 167.75
+offset_bottom = 210.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_uchyk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iy58a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6a6wx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iy58a")
+text = "Start "
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_62e2m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pxugv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eh0v1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sky72")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -375.0
+offset_right = 223.0
+offset_bottom = -297.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_6a6wx")
+theme_override_font_sizes/font_size = 72
+text = "konkey dong"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
