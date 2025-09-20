@@ -4,15 +4,15 @@
 
 ## Basic Details
 
-**Team Name:** [Your Team Name]
+**Team Name:** JAEGERS
 
 ### Team Members
-- **Team Lead:** [Name] - [College]
-- **Member 2:** [Name] - [College]
-- **Member 3:** [Name] - [College]
+- **Team Lead:** Adithyan M C - TKM College of Engineering
+- **Member 2:** Prabhath -TKM College of Engineering
+- **Member 3:** Sachit jayaganesh - TKM College of Engineering
 
 ## Game Description
-[2-3 lines about what your game is, the genre, and what makes it fun or unique.]
+Donkey kong saves the twin tower from plane attacks
 
 ## The Concept
 [Explain the core idea of the game—story, gameplay mechanics, or main objective.]
@@ -20,41 +20,38 @@
 ## Technical Details
 
 ### Technologies Used
-- **Languages:** [C#, Python, JavaScript, etc.]
-- **Game Engines/Frameworks:** [Unity, Unreal Engine, Godot, Phaser, etc.]
-- **Libraries/Assets:** [Any relevant libraries, APIs, or assets used]
-- **Tools:** [Version control, graphic editors, sound tools, etc.]
+- **Languages:** GdScript
+- **Game Engines/Frameworks:** Godot
+- **Libraries/Assets:** 
+- **Tools:** 
 
 ### Implementation
 
 #### Installation / Setup
-[To build and run the game manually from source:]
+No deployment
 
-**Example:**
 ```bash
-   git clone https://github.com/[YourRepo]/[GameName].git
-   cd [GameName]
+   git clone https://github.com/Adithyan19/konkey-donk.git
+   cd konkey-donk
+
 ```
 
 ## Game Documentation
 
 ### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 link)  
-*Add caption explaining what this shows*
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/0571ec0e-3695-4039-8833-e40356c4d517" />
 
-![Screenshot2](Add screenshot 2 link)  
-*Add caption explaining what this shows*
 
-![Screenshot3](Add screenshot 3 link)  
-*Add caption explaining what this shows*
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/668ca2c6-4121-4f85-82f2-496ddae63cc7" />
+
 
 ### Game Demo
 
 #### Gameplay Video
-[Add link to gameplay video]  
+(https://drive.google.com/file/d/188CeMaOTfZzmaj3RTF6lupT9wtY6sFNm/view?usp=sharing) 
 
 ## Game Download / Deployment
-- **Playable Version / Download:** [Link to executable or archive]
+- **Playable Version / Download:** (https://drive.google.com/file/d/171Fg2s1Nyzxk6CmjVryZ8h7I3-Ma9jQP/view?usp=sharing)
 - **Deployed Web Version (if any):** [Link to web build]
 
