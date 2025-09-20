@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cmpnbjrnwggou"]
 
 [ext_resource type="Texture2D" uid="uid://cgddhsj56exdr" path="res://assets/Dithered/Cloud-7.png" id="1_ee4bf"]
-[ext_resource type="Script" uid="uid://b0wpww1xdd00b" path="res://scripts/control.gd" id="1_sky72"]
+[ext_resource type="Script" path="res://scripts/control.gd" id="1_sky72"]
 [ext_resource type="Texture2D" uid="uid://d2e1usiikcywy" path="res://assets/Dithered/Cloud-2.png" id="2_kbped"]
 [ext_resource type="Texture2D" uid="uid://ctwdhttgf3xo5" path="res://assets/Dithered/Cloud-5.png" id="3_fj5cn"]
 [ext_resource type="Texture2D" uid="uid://cth0100sc6mlp" path="res://assets/Dithered/Cloud-31.png" id="4_iy58a"]

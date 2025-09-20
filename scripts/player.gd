@@ -94,7 +94,7 @@ func switch_tower():
 
 func attack():
 	if is_attacking:
-		return
+		return 
 		
 	is_attacking = true
 	print("🥊 KONG ATTACK! Tower: ", current_tower)
